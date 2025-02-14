@@ -14,10 +14,10 @@ if not df_plan2.empty:
     output_file_plan2 = os.path.join(output_dir, 'plannum_2.csv')
     
     with open(output_file_plan2, 'w', encoding='utf-8') as f:
-        f.write('/DELIMITER="\n')
-        f.write('/FIELDS=UPDATE_MODE,PRIMARYKEYVALUE,SVC1PLANNUM,SVC1AMOUNT\n')
+        f.write('/DELIMITER=","\n')
+        f.write('/FIELDS=UPDATE_MODE,PRIMARYKEYVALUE,SVC1PLANNUM\n')
         for _, row in df_plan2.iterrows():
-            f.write(f'C,{row["PRIMARYKEY"]},2,0\n')
+            f.write(f'D,{row["PRIMARYKEY"]},2\n')
 
 # Create a CSV for PLANNUM = 200
 df_plan200 = df[df['PLANNUM'] == 200]
@@ -25,17 +25,17 @@ if not df_plan200.empty:
     output_file_plan200 = os.path.join(output_dir, 'plannum_200.csv')
     
     with open(output_file_plan200, 'w', encoding='utf-8') as f:
-        f.write('/DELIMITER="\n')
-        f.write('/FIELDS=UPDATE_MODE,PRIMARYKEYVALUE,SVC1PLANNUM,SVC1AMOUNT\n')
+        f.write('/DELIMITER=","\n')
+        f.write('/FIELDS=UPDATE_MODE,PRIMARYKEYVALUE,SVC1PLANNUM\n')
         for _, row in df_plan200.iterrows():
-            f.write(f'C,{row["PRIMARYKEY"]},200,0\n')
+            f.write(f'D,{row["PRIMARYKEY"]},200\n')
 
 # Create special CSV for PLANNUM = 2 with SVC1PLANNUM = 4
 if not df_plan2.empty:
     output_file_plan2_special = os.path.join(output_dir, 'plannum_2_special.csv')
     
     with open(output_file_plan2_special, 'w', encoding='utf-8') as f:
-        f.write('/DELIMITER="\n')
+        f.write('/DELIMITER=","\n')
         f.write('/FIELDS=UPDATE_MODE,PRIMARYKEYVALUE,SVC1PLANNUM,SVC1AMOUNT\n')
         for _, row in df_plan2.iterrows():
             # Convert the negative decimal to the required format
