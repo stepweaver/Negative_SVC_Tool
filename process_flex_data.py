@@ -17,7 +17,7 @@ if not df_plan2.empty:
         f.write('/DELIMITER=","\n')
         f.write('/FIELDS=UPDATE_MODE,PRIMARYKEYVALUE,SVC1PLANNUM' + '\n')
         for _, row in df_plan2.iterrows():
-            f.write(f'C,{row["PRIMARYKEY"]},2' + '\n')
+            f.write(f'V,{row["PRIMARYKEY"]},2' + '\n')
 
 # Create a CSV for PLANNUM = 200
 df_plan200 = df[df['PLANNUM'] == 200]
